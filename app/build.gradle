@@ -36,6 +36,11 @@ android {
         viewBinding true
         dataBinding true
     }
+
+    apollo {
+        packageName.set("com.combyn.tvshows")
+        generateKotlinModels.set(true)
+    }
 }
 
 dependencies {

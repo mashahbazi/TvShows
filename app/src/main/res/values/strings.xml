@@ -2,4 +2,6 @@
     <string name="app_name">TvShows</string>
     <string name="add_new_movie">add new movie</string>
     <string name="all_movies">all movies</string>
+    <string name="release_date">Release Date</string>
+    <string name="seasons">Seasons</string>
 </resources>
