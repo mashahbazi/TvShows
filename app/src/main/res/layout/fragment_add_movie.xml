@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.combyn.tvshows.ui.addmoviefragment.AddMovieViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <EditText
+            android:id="@+id/et_tv_show_title"
+            style="@style/edit_text_style"
+            android:hint="@string/tv_show"
+            android:text="@={viewModel.tvShowTitle}" />
+
+        <TextView
+            android:id="@+id/tv_release_date"
+            style="@style/edit_text_style"
+            android:hint="@string/release_date"
+            android:text="@{viewModel.humanReadableDate}" />
+
+        <EditText
+            style="@style/edit_text_style"
+            android:hint="@string/seasons"
+            android:inputType="number"
+            android:text="@={viewModel.seasons}" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <Button
+                android:id="@+id/btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{()-> viewModel.saveTVShow()}"
+                android:text="@string/save_tv_show"
+                android:visibility="@{viewModel.isLoadingVisibility ? View.GONE : View.VISIBLE}" />
+
+            <ProgressBar
+                android:id="@+id/pb"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:visibility="@{viewModel.isLoadingVisibility ? View.VISIBLE : View.GONE}" />
+        </FrameLayout>
+
+    </LinearLayout>
+</layout>
