@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'com.apollographql.apollo3'
 }
 
 android {
@@ -48,6 +49,13 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
     kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+
+    // Apollo graph ql
+    implementation"com.apollographql.apollo3:apollo-runtime:$apollo_graph_ql_version"
+    implementation"com.apollographql.apollo3:apollo-api:$apollo_graph_ql_version"
+
+    //paging3
+    implementation "androidx.paging:paging-runtime-ktx:3.0.1"
 
     // test dependencies
     testImplementation 'junit:junit:4.13.2'

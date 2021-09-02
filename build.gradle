@@ -2,6 +2,7 @@
 buildscript {
     ext.kotlin_version = "1.5.30"
     ext.lifecycle_version = "2.3.1"
+    ext.apollo_graph_ql_version = "3.0.0-alpha02"
     repositories {
         google()
         mavenCentral()
@@ -9,7 +10,7 @@ buildscript {
     dependencies {
         classpath "com.android.tools.build:gradle:7.0.1"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-
+        classpath "com.apollographql.apollo3:apollo-gradle-plugin:$apollo_graph_ql_version"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
