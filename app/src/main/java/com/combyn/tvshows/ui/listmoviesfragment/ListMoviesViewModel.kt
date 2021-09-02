@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.paging.PagingData
 import com.combyn.tvshows.model.Movie
 import com.combyn.tvshows.repositories.movie.MovieRepository
+import com.combyn.tvshows.type.MovieOrder
 
 class ListMoviesViewModel(private val moviesRepository: MovieRepository) : ViewModel() {
     /**
@@ -13,5 +14,5 @@ class ListMoviesViewModel(private val moviesRepository: MovieRepository) : ViewM
      * It will fetch them using paging. This mean it will load them when user scroll down
      * not all in first request.
      */
-    fun getAllMovies(): LiveData<PagingData<Movie>> = moviesRepository.getAllMovies()
+    fun getAllMovies(movieOrder: MovieOrder): LiveData<PagingData<Movie>> = moviesRepository.getAllMovies(movieOrder)
 }

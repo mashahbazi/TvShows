@@ -6,5 +6,6 @@
     <string name="seasons">Seasons</string>
     <string name="tv_show">Tv Show</string>
     <string name="save_tv_show">Save TV show</string>
-    <string name="ok">Ok</string>
+    <string name="ok">OK</string>
+    <string name="sorted_by">Sorted by :</string>
 </resources>

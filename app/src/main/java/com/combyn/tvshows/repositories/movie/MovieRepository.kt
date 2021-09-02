@@ -11,6 +11,7 @@ import com.combyn.tvshows.CreateMovieMutation
 import com.combyn.tvshows.model.Movie
 import com.combyn.tvshows.type.CreateMovieFieldsInput
 import com.combyn.tvshows.type.CreateMovieInput
+import com.combyn.tvshows.type.MovieOrder
 
 class MovieRepository(private val apolloClient: ApolloClient) {
     /**
@@ -18,10 +19,10 @@ class MovieRepository(private val apolloClient: ApolloClient) {
      *
      * It will fetch them by paging and return them as live data
      */
-    fun getAllMovies(): LiveData<PagingData<Movie>> {
+    fun getAllMovies(movieOrder: MovieOrder): LiveData<PagingData<Movie>> {
         return Pager(
             config = PagingConfig(MovieDataSource.pageSize, enablePlaceholders = true),
-            pagingSourceFactory = { MovieDataSource(apolloClient) }
+            pagingSourceFactory = { MovieDataSource(apolloClient,movieOrder) }
         ).liveData
     }
 

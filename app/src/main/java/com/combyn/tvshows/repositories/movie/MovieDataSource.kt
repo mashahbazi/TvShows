@@ -5,10 +5,11 @@ import androidx.paging.PagingState
 import com.apollographql.apollo3.ApolloClient
 import com.combyn.tvshows.MoviesQuery
 import com.combyn.tvshows.model.Movie
-
+import com.combyn.tvshows.type.MovieOrder
 
 class MovieDataSource(
     private val apolloClient: ApolloClient,
+    private val movieOrder: MovieOrder,
 ) :
     PagingSource<String, Movie>() {
     companion object {
@@ -32,7 +33,7 @@ class MovieDataSource(
      * Loads apollo client movies and convert them to app Movie model.
      */
     override suspend fun load(params: LoadParams<String>): LoadResult<String, Movie> {
-        val response = apolloClient.query(MoviesQuery(pageSize, params.key))
+        val response = apolloClient.query(MoviesQuery(pageSize, listOf(movieOrder), params.key))
         val pageInfo = response.data?.movies?.pageInfo
         return LoadResult.Page(
             data = response.data?.movies?.edges?.mapNotNull { it?.node }

@@ -1,5 +1,5 @@
-query Movies($count:Int!,$afterKey: String){
-    movies(first:$count,after:$afterKey){
+query Movies($count:Int!,$order:[MovieOrder!],$afterKey: String){
+    movies(first:$count,after:$afterKey,order: $order){
         pageInfo{
             startCursor
             endCursor
@@ -15,4 +15,5 @@ query Movies($count:Int!,$afterKey: String){
             }
         }
     }
+
 }
