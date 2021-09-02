@@ -2,12 +2,20 @@ package com.combyn.tvshows.ui.mainactivity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import com.combyn.tvshows.R
+import com.combyn.tvshows.databinding.ActivityMainBinding
+import com.combyn.tvshows.ui.homefragment.HomeFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        if (savedInstanceState == null) {
+            val homeFragment = HomeFragment()
+            supportFragmentManager.beginTransaction().add(R.id.fragment_container, homeFragment).commit()
+        }
     }
 
     /**
